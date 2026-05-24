@@ -3,6 +3,7 @@
 // au reload. Avec HashRouter les routes deviennent /#/liste, /#/crypto/bitcoin
 // et tout est gere cote client -> zero 404.
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import Footer from "./Component/Footer/Footer";
 import Home from "./Pages/Home/Home";
@@ -29,6 +30,7 @@ export default function App() {
           </div>
           <Footer />
         </div>
+        <SpeedInsights />
       </HashRouter>
     </FavoritesProvider>
   );
