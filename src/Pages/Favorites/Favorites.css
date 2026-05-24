@@ -1,0 +1,58 @@
+
+.fav-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+
+.fav-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+
+.fav-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.fav-empty p {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.fav-empty button {
+  background: linear-gradient(135deg, var(--accent), #5b21b6);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.6rem;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.fav-empty button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.coins-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+
+@media (max-width: 600px) {
+  .fav-title { font-size: 1.4rem; }
+  .coins-grid { grid-template-columns: 1fr; }
+}
