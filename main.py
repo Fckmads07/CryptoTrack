@@ -5,10 +5,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Permet à React (localhost:5173 en dev, GitHub Pages en prod) de parler à FastAPI.
-# allow_origins="*" est tolérant — pour durcir, remplace par la liste exacte :
-# ["http://localhost:5173", "https://TON_USERNAME.github.io"]
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+# Seuls ces sites peuvent appeler l'API depuis un navigateur :
+# le serveur de dev Vite (local) et le site en production sur Vercel.
+ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://crypto-track-ljis.vercel.app",
+]
+# L'API est en lecture seule : on n'autorise que GET.
+app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS, allow_methods=["GET"], allow_headers=[])
 
 # Chemin absolu vers MOCK_DATA.csv — indispensable sur PythonAnywhere
 # où le cwd n'est pas forcément le dossier du projet.
